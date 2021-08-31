@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <errno.h>
+#include <sys/wait.h>
 
 int main(int argc, char **argv)
 {
@@ -31,10 +32,15 @@ int main(int argc, char **argv)
 		fprintf(stderr, "exec function failed: %s\n", strerror(errno));
 		_exit(EXIT_FAILURE);
 	}
-	printf("Posixsrv ran in background\n");
-
 	/* without this delay sometimes posixsrv is not yet running before the next function call */
 	usleep(100000);
+
+	if (waitpid(ret, NULL, WNOHANG) > 0) {
+		fprintf(stderr, "Posixsrv failed to run in background\n");
+		return 1;
+	}
+	else
+		printf("Posixsrv ran in background\n");
 
 	if ((ret = system("cd /bin/testsuite/ && export PATH=/bin:/sbin:/usr/bin:/usr/sbin && ./runtest")) < 0) {
 		fprintf(stderr, "system function failed: %s\n", strerror(errno));
