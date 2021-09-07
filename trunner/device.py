@@ -18,6 +18,7 @@ from .tools.color import Color
 
 
 _BOOT_DIR = PHRTOS_PROJECT_DIR / '_boot'
+LOGFILE_PATH = '/actions-runner/logfile'
 
 QEMU_CMD = {
     'ia32-generic': (
@@ -35,6 +36,15 @@ def is_github_actions():
     return os.getenv('GITHUB_ACTIONS', False)
 
 
+def save_in_logfile(threshold_exceeded=False, wait_time=0):
+    if not os.path.exists(LOGFILE_PATH):
+        os.system(f'echo "Does wait time exceed 5s?" > {LOGFILE_PATH}')
+    if threshold_exceeded:
+        os.system(f'echo "-yes, wait_time={wait_time}" >> {LOGFILE_PATH}')
+    else:
+        os.system(f'echo "-no" >> {LOGFILE_PATH}')
+
+
 def wait_for_dev(port, timeout=0):
     asleep = 0
 
@@ -44,6 +54,10 @@ def wait_for_dev(port, timeout=0):
         asleep += 0.01
         if timeout and asleep >= timeout:
             raise TimeoutError
+    if asleep >= 5:
+        save_in_logfile(threshold_exceeded=True, wait_time=asleep)
+    else:
+        save_in_logfile(threshold_exceeded=False)
 
 
 def power_usb_ports(enable: bool):
