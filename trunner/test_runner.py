@@ -9,13 +9,14 @@ from .testcase import TestCaseFactory
 class TestsRunner:
     """Class responsible for loading, building and running tests"""
 
-    def __init__(self, targets, test_paths, build=True, flash=True):
+    def __init__(self, targets, test_paths, build=True, flash=True, long_test=False):
         self.targets = targets
         self.test_configs = []
         self.test_paths = test_paths
         self.tests_per_target = {k: [] for k in targets}
         self.build = build
         self.flash = flash
+        self.long_test = long_test
         self.runners = None
 
     def search_for_tests(self):
@@ -42,7 +43,7 @@ class TestsRunner:
         self.parse_tests()
 
         for test_config in self.test_configs:
-            test = TestCaseFactory.create(test_config)
+            test = TestCaseFactory.create(test_config, self.long_test)
             self.tests_per_target[test.target].append(test)
 
         if self.build:
