@@ -143,7 +143,7 @@ class TestConfig(Config):
 
 class ConfigParser:
     KEYWORDS: Tuple[str, ...] = ('exec', 'harness', 'ignore', 'name', 'targets', 'timeout', 'type')
-    TEST_TYPES: Tuple[str, ...] = ('unit', 'harness')
+    TEST_TYPES: Tuple[str, ...] = ('unit', 'harness', 'busybox')
 
     def parse_keywords(self, config: Config) -> None:
         keywords = set(config)
