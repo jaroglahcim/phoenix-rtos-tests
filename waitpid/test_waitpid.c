@@ -42,7 +42,8 @@ TEST(test_waitpid, waitpid_wnohang)
 	int res, i, j;
 	char *const arg[][2] = { { "exec_while_process", NULL }, { "exec_sum_process", NULL } };
 
-	for (i = 50; i > 0; i--) {
+	/* 1 iteration for easier problem reproduction, in the future there will be more irerations */
+	for (i = 1; i > 0; i--) {
 		for (j = 0; j < 2; j++) {
 			if ((pid[j] = vfork()) < 0) {
 				fprintf(stderr, "vfork function failed: %s\n", strerror(errno));
@@ -55,10 +56,12 @@ TEST(test_waitpid, waitpid_wnohang)
 				_exit(EXIT_FAILURE);
 			}
 		}
+		/* wait for process 1 to become a zombie process */
+		usleep(200000);
 		res = waitpid(pid[0], NULL, WNOHANG);
-		/* at some iteration in turn */
 		/* instead of returning 0 at once waitpid function waits for a process state change */
 		TEST_ASSERT_EQUAL_INT(0, res);
+
 		usleep(100000);
 		/* other test cases for check in the future */
 		// res = waitpid(pid[1], NULL, WNOHANG);
@@ -90,7 +93,7 @@ int main(int argc, char *argv[])
 	}
 	else if (!strcmp(basename(argv[0]), "exec_sum_process")) {
 		if ((sum = 1 + 2) == 3)
-			;
+			usleep(100000);
 	}
 	else {
 
