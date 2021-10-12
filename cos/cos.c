@@ -15,6 +15,11 @@ TEST(test_cos, test1)
     TEST_FAIL_MESSAGE("Not implemented yet");
 }
 
+TEST_GROUP_RUNNER(test_cos)
+{
+    RUN_TEST_CASE(test_cos, test1);
+}
+
 void runner(void)
 {
 	RUN_TEST_GROUP(test_cos);
