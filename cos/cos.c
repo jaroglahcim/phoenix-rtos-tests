@@ -2,6 +2,14 @@
 
 TEST_GROUP(test_cos);
 
+TEST_SETUP(test_setjmp)
+{
+}
+
+TEST_TEAR_DOWN(test_setjmp)
+{
+}
+
 TEST(test_cos, test1)
 {
     TEST_FAIL_MESSAGE("Not implemented yet");
