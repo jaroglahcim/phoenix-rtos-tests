@@ -2,11 +2,11 @@
 
 TEST_GROUP(test_cos);
 
-TEST_SETUP(test_setjmp)
+TEST_SETUP(test_cos)
 {
 }
 
-TEST_TEAR_DOWN(test_setjmp)
+TEST_TEAR_DOWN(test_cos)
 {
 }
 
