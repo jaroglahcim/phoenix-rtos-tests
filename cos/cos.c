@@ -7,7 +7,6 @@ TEST_GROUP(test_cos);
 
 TEST_SETUP(test_cos)
 {
-    double res, x, y;
 }
 
 TEST_TEAR_DOWN(test_cos)
@@ -16,6 +15,7 @@ TEST_TEAR_DOWN(test_cos)
 
 TEST(test_cos, cos_0)
 {
+    double res, x, y;
     x = 0.0;
     y = 1.0;
     res = cos(x);
@@ -24,6 +24,7 @@ TEST(test_cos, cos_0)
 
 TEST(test_cos, cos_sixth_of_pi)
 {
+    double res, x, y;
     x = M_PI / 6.0;
     y = sqrt(3) / 2.0;
     res = cos(x);
@@ -32,6 +33,7 @@ TEST(test_cos, cos_sixth_of_pi)
 
 TEST(test_cos, cos_fourth_of_pi)
 {
+    double res, x, y;
     x = M_PI / 4.0;
     y = sqrt(2) / 2.0;
     res = cos(0);
@@ -40,6 +42,7 @@ TEST(test_cos, cos_fourth_of_pi)
 
 TEST(test_cos, cos_third_of_pi)
 {
+    double res, x, y;
     x = M_PI / 3.0;
     y = 0.5;
     res = cos(0);
@@ -48,6 +51,7 @@ TEST(test_cos, cos_third_of_pi)
 
 TEST(test_cos, cos_half_of_pi)
 {
+    double res, x, y;
     x = M_PI / 2.0;
     y = 0.0;
     res = cos(0);
