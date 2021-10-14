@@ -18,9 +18,9 @@ extern "C"
 {
 #endif
 
-//#define UNITY_EXCLUDE_FLOAT
+#define UNITY_EXCLUDE_FLOAT
 #define UNITY_INCLUDE_DOUBLE
-//#define UNITY_DOUBLE_PRECISION 1e-12
+#define UNITY_DOUBLE_PRECISION 1e-12
 
 #include "unity_internals.h"
 
