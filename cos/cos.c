@@ -1,5 +1,5 @@
 #include <math.h>
-#define UNITY_EXCLUDE_FLOAT
+#define UNITY_INCLUDE_DOUBLE
 
 #include "unity_fixture.h"
 
