@@ -52,7 +52,7 @@ int suiteTearDown(int num_failures);
 void resetTest(void);
 void verifyTest(void);
 
-#define UNITY_INCLUDE_DOUBLE
+#define UNITY_EXCLUDE_FLOAT
 /*-------------------------------------------------------
  * Configuration Options
  *-------------------------------------------------------
