@@ -18,6 +18,10 @@ extern "C"
 {
 #endif
 
+//#define UNITY_EXCLUDE_FLOAT
+#define UNITY_INCLUDE_DOUBLE
+//#define UNITY_DOUBLE_PRECISION 1e-12
+
 #include "unity_internals.h"
 
 /*-------------------------------------------------------
@@ -51,10 +55,6 @@ int suiteTearDown(int num_failures);
  * run the verification. */
 void resetTest(void);
 void verifyTest(void);
-
-#define UNITY_EXCLUDE_FLOAT
-#define UNITY_INCLUDE_DOUBLE
-#define UNITY_DOUBLE_PRECISION 1e-12
 /*-------------------------------------------------------
  * Configuration Options
  *-------------------------------------------------------
