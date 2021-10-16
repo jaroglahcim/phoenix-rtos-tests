@@ -44,7 +44,7 @@ TEST(test_cos, cos_fourth_of_pi)
     double res, x, y;
     x = M_PI / 4.0;
     y = sqrt(2) / 2.0;
-    res = cos(0);
+    res = cos(x);
     TEST_ASSERT_EQUAL_DOUBLE(y, res);
 }
 
@@ -53,7 +53,7 @@ TEST(test_cos, cos_third_of_pi)
     double res, x, y;
     x = M_PI / 3.0;
     y = 0.5;
-    res = cos(0);
+    res = cos(x);
     TEST_ASSERT_EQUAL_DOUBLE(y, res);
 }
 
@@ -62,7 +62,7 @@ TEST(test_cos, cos_half_of_pi)
     double res, x, y;
     x = M_PI / 2.0;
     y = 0.0;
-    res = cos(0);
+    res = cos(x);
     TEST_ASSERT_EQUAL_DOUBLE(y, res);
 }
 
