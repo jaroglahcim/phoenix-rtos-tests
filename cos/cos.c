@@ -98,6 +98,10 @@ TEST_GROUP_RUNNER(test_cos_known_values)
     RUN_TEST_CASE(test_cos, cos_fourth_of_pi);
     RUN_TEST_CASE(test_cos, cos_third_of_pi);
     RUN_TEST_CASE(test_cos, cos_half_of_pi);
+}
+
+TEST_GROUP_RUNNER(test_cos_known_values_quarters)
+{
     RUN_TEST_CASE(test_cos, cos_second_quarter);
     RUN_TEST_CASE(test_cos, cos_third_quarter);
     RUN_TEST_CASE(test_cos, cos_fourth_quarter);
@@ -106,6 +110,7 @@ TEST_GROUP_RUNNER(test_cos_known_values)
 void runner(void)
 {
 	RUN_TEST_GROUP(test_cos_known_values);
+	RUN_TEST_GROUP(test_cos_known_values_quarters);
 }
 
 int main(int argc, char *argv[])
