@@ -1,9 +1,15 @@
 #include <math.h>
-#define UNITY_INCLUDE_FLOAT
-#define UNITY_INCLUDE_DOUBLE
-#define UNITY_DOUBLE_PRECISION 1e-12
 
 #include "unity_fixture.h"
+
+#ifdef UNITY_INCLUDE_FLOAT
+#define UNITY_INCLUDE_FLOAT
+#endif
+
+#ifdef UNITY_INCLUDE_DOUBLE
+#define UNITY_INCLUDE_DOUBLE
+#define UNITY_DOUBLE_PRECISION (1e-12)
+#endif
 
 TEST_GROUP(test_cos);
 
