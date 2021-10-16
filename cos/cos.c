@@ -8,7 +8,7 @@
 
 #ifdef UNITY_INCLUDE_DOUBLE
 #define UNITY_INCLUDE_DOUBLE
-#define UNITY_DOUBLE_PRECISION (1e-15)
+#define UNITY_DOUBLE_PRECISION (1e-17)
 #endif
 
 TEST_GROUP(test_cos);
@@ -82,6 +82,7 @@ TEST_GROUP_RUNNER(test_cos_known_values)
     RUN_TEST_CASE(test_cos, cos_fourth_of_pi);
     RUN_TEST_CASE(test_cos, cos_third_of_pi);
     RUN_TEST_CASE(test_cos, cos_half_of_pi);
+    RUN_TEST_CASE(test_cos, cos_second_quarter);
 }
 
 void runner(void)
