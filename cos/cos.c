@@ -68,26 +68,26 @@ TEST(test_cos, cos_half_of_pi)
 
 TEST(test_cos, cos_second_quarter)
 {
-    TEST_ASSERT_EQUAL_DOUBLE(cos((2.0 / 3.0) * M_PI), -0.5);
-    TEST_ASSERT_EQUAL_DOUBLE(cos(0.75* M_PI), -sqrt(2) / 2.0);
-    TEST_ASSERT_EQUAL_DOUBLE(cos((5.0 / 6.0) * M_PI), -sqrt(3) / 2.0);
-    TEST_ASSERT_EQUAL_DOUBLE(cos(M_PI), -1.0);
+    TEST_ASSERT_EQUAL_DOUBLE(-0.5, cos((2.0 / 3.0) * M_PI));
+    TEST_ASSERT_EQUAL_DOUBLE(-sqrt(2) / 2.0, cos(0.75* M_PI));
+    TEST_ASSERT_EQUAL_DOUBLE(-sqrt(3) / 2.0, cos((5.0 / 6.0) * M_PI));
+    TEST_ASSERT_EQUAL_DOUBLE(-1.0, cos(M_PI));
 }
 
 TEST(test_cos, cos_third_quarter)
 {
-    TEST_ASSERT_EQUAL_DOUBLE(cos((7.0 / 6.0) * M_PI), -sqrt(3) / 2.0);
-    TEST_ASSERT_EQUAL_DOUBLE(cos(1.25 * M_PI), -sqrt(2) / 2.0);
-    TEST_ASSERT_EQUAL_DOUBLE(cos((4.0 / 3.0) * M_PI), -0.5);
-    TEST_ASSERT_EQUAL_DOUBLE(cos(1.5 * M_PI), 0.0);
+    TEST_ASSERT_EQUAL_DOUBLE(-sqrt(3) / 2.0, cos((7.0 / 6.0) * M_PI));
+    TEST_ASSERT_EQUAL_DOUBLE(-sqrt(2) / 2.0, cos(1.25 * M_PI));
+    TEST_ASSERT_EQUAL_DOUBLE(-0.5, cos((4.0 / 3.0) * M_PI));
+    TEST_ASSERT_EQUAL_DOUBLE(0.0, cos(1.5 * M_PI));
 }
 
 TEST(test_cos, cos_fourth_quarter)
 {
-    TEST_ASSERT_EQUAL_DOUBLE(cos((5.0 / 3.0) * M_PI), 0.5);
-    TEST_ASSERT_EQUAL_DOUBLE(cos(1.75 * M_PI), sqrt(2) / 2.0);
-    TEST_ASSERT_EQUAL_DOUBLE(cos((11.0 / 6.0) * M_PI), sqrt(3) / 2.0);
-    TEST_ASSERT_EQUAL_DOUBLE(cos(2.0 * M_PI), 1.0);
+    TEST_ASSERT_EQUAL_DOUBLE(0.5, cos((5.0 / 3.0) * M_PI));
+    TEST_ASSERT_EQUAL_DOUBLE(sqrt(2) / 2.0, cos(1.75 * M_PI));
+    TEST_ASSERT_EQUAL_DOUBLE(sqrt(3) / 2.0, cos((11.0 / 6.0) * M_PI));
+    TEST_ASSERT_EQUAL_DOUBLE(1.0, cos(2.0 * M_PI));
 }
 
 
