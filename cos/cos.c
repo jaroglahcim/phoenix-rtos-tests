@@ -8,7 +8,7 @@
 
 #ifdef UNITY_INCLUDE_DOUBLE
 #define UNITY_INCLUDE_DOUBLE
-#define UNITY_DOUBLE_PRECISION (1e0)
+//#define UNITY_DOUBLE_PRECISION (1e0)
 #endif
 
 TEST_GROUP(test_cos);
