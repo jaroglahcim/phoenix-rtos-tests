@@ -8,7 +8,7 @@
 
 #ifdef UNITY_INCLUDE_DOUBLE
 #define UNITY_INCLUDE_DOUBLE
-#define UNITY_DOUBLE_PRECISION (1e-12)
+#define UNITY_DOUBLE_PRECISION (1e-15)
 #endif
 
 TEST_GROUP(test_cos);
@@ -66,8 +66,16 @@ TEST(test_cos, cos_half_of_pi)
     TEST_ASSERT_EQUAL_DOUBLE(y, res);
 }
 
+TEST(test_cos, cos_second_quarter)
+{
+    TEST_ASSERT_EQUAL_DOUBLE((2.0 / 3.0) * M_PI, -0.5);
+    TEST_ASSERT_EQUAL_DOUBLE(   (0.75)   * M_PI, -sqrt(2) / 2.0);
+    TEST_ASSERT_EQUAL_DOUBLE((5.0 / 6.0) * M_PI, -sqrt(3) / 2.0);
+    TEST_ASSERT_EQUAL_DOUBLE(              M_PI, -1.0);
+}
 
-TEST_GROUP_RUNNER(test_cos) 
+
+TEST_GROUP_RUNNER(test_cos_known_values) 
 {
     RUN_TEST_CASE(test_cos, cos_0);
     RUN_TEST_CASE(test_cos, cos_sixth_of_pi);
@@ -78,7 +86,7 @@ TEST_GROUP_RUNNER(test_cos)
 
 void runner(void)
 {
-	RUN_TEST_GROUP(test_cos);
+	RUN_TEST_GROUP(test_cos_known_values);
 }
 
 int main(int argc, char *argv[])
