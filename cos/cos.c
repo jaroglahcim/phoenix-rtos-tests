@@ -8,7 +8,7 @@
 
 #ifdef UNITY_INCLUDE_DOUBLE
 #define UNITY_INCLUDE_DOUBLE
-#define UNITY_DOUBLE_PRECISION (1e-17)
+#define UNITY_DOUBLE_PRECISION (1e-9)
 #endif
 
 TEST_GROUP(test_cos);
@@ -68,10 +68,10 @@ TEST(test_cos, cos_half_of_pi)
 
 TEST(test_cos, cos_second_quarter)
 {
-    TEST_ASSERT_EQUAL_DOUBLE((2.0 / 3.0) * M_PI, -0.5);
-    TEST_ASSERT_EQUAL_DOUBLE(   (0.75)   * M_PI, -sqrt(2) / 2.0);
-    TEST_ASSERT_EQUAL_DOUBLE((5.0 / 6.0) * M_PI, -sqrt(3) / 2.0);
-    TEST_ASSERT_EQUAL_DOUBLE(              M_PI, -1.0);
+    TEST_ASSERT_EQUAL_DOUBLE(cos((2.0 / 3.0) * M_PI), -0.5);
+    TEST_ASSERT_EQUAL_DOUBLE(cos(0.75* M_PI), -sqrt(2) / 2.0);
+    TEST_ASSERT_EQUAL_DOUBLE(cos((5.0 / 6.0) * M_PI), -sqrt(3) / 2.0);
+    TEST_ASSERT_EQUAL_DOUBLE(cos(M_PI), -1.0);
 }
 
 
