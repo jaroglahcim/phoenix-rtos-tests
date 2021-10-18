@@ -63,7 +63,8 @@ TEST(test_cos, cos_half_of_pi)
     x = M_PI / 2.0;
     y = 0.0;
     res = cos(x);
-    TEST_ASSERT_EQUAL_DOUBLE(y, res);
+    //TEST_ASSERT_EQUAL_DOUBLE(y, res);
+    TEST_ASSERT_DOUBLE_WITHIN(y, res, 1e-12);
 }
 
 TEST(test_cos, cos_second_quarter)
@@ -79,7 +80,8 @@ TEST(test_cos, cos_third_quarter)
     TEST_ASSERT_EQUAL_DOUBLE(-sqrt(3) / 2.0, cos((7.0 / 6.0) * M_PI));
     TEST_ASSERT_EQUAL_DOUBLE(-sqrt(2) / 2.0, cos(1.25 * M_PI));
     TEST_ASSERT_EQUAL_DOUBLE(-0.5, cos((4.0 / 3.0) * M_PI));
-    TEST_ASSERT_EQUAL_DOUBLE(0.0, cos(1.5 * M_PI));
+    //TEST_ASSERT_EQUAL_DOUBLE(0.0, cos(1.5 * M_PI));
+    TEST_ASSERT_DOUBLE_WITHIN(0.0, cos(1.5 * M_PI), 1e-12);
 }
 
 TEST(test_cos, cos_fourth_quarter)
@@ -88,6 +90,12 @@ TEST(test_cos, cos_fourth_quarter)
     TEST_ASSERT_EQUAL_DOUBLE(sqrt(2) / 2.0, cos(1.75 * M_PI));
     TEST_ASSERT_EQUAL_DOUBLE(sqrt(3) / 2.0, cos((11.0 / 6.0) * M_PI));
     TEST_ASSERT_EQUAL_DOUBLE(1.0, cos(2.0 * M_PI));
+}
+
+TEST(test_cos, NaN)
+{
+    double nan = sqrt(-1);
+    TEST_ASSERT_EQUAL_DOUBLE(nan, cos(nan));
 }
 
 
@@ -105,6 +113,7 @@ TEST_GROUP_RUNNER(test_cos_known_values_quarters)
     RUN_TEST_CASE(test_cos, cos_second_quarter);
     RUN_TEST_CASE(test_cos, cos_third_quarter);
     RUN_TEST_CASE(test_cos, cos_fourth_quarter);
+    RUN_TEST_CASE(test_cos, NaN);
 }
 
 void runner(void)
