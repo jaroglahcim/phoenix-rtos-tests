@@ -170,7 +170,7 @@ TEST(test_cos, cos_minus_infinity)
 
 TEST(test_cos, cos_denormalized)
 {
-    TEST_ASSERT_EQUAL_DOUBLE(0.0, cos(4.94066e-324));
+    TEST_ASSERT_EQUAL_DOUBLE(1.0, cos(4.94066e-324));
 }
 
 TEST_GROUP_RUNNER(test_cos_special_cases) 
