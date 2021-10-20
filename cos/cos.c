@@ -126,6 +126,7 @@ TEST_GROUP_RUNNER(test_cos_known_values_one_cycle)
 }
 
 
+
 TEST(test_cos, cos_all_within_range)
 {
     double i = 0.0;
