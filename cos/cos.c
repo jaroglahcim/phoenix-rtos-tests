@@ -108,8 +108,7 @@ TEST(test_cos, cos_2_pi)
 
 TEST(test_cos, cos_NaN)
 {
-    //NAN
-    TEST_ASSERT_EQUAL_DOUBLE(1.0, cos(sqrt(-1.0)));
+    TEST_ASSERT_EQUAL_DOUBLE(NAN, cos(sqrt(-1.0)));
 }
 
 TEST(test_cos, cos_minus_pi)
