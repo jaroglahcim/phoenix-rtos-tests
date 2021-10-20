@@ -156,7 +156,7 @@ TEST(test_cos, all_within_range)
     double max = 2 * M_PI;
     while(i < max)
     {
-        TEST_ASSERT_DOUBLE_WITHIN(1.0, 0.01, cos(i));
+        TEST_ASSERT_DOUBLE_WITHIN(1.0, 0.5, cos(i));
         i += 0.05;
     }
 }
