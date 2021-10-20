@@ -105,22 +105,6 @@ TEST(test_cos, cos_2_pi)
     TEST_ASSERT_EQUAL_DOUBLE(1.0, cos(2.0 * M_PI));
 }
 
-
-TEST(test_cos, cos_NaN)
-{
-    TEST_ASSERT_EQUAL_DOUBLE(NAN, cos(sqrt(-1.0)));
-}
-
-TEST(test_cos, cos_minus_pi)
-{
-    TEST_ASSERT_EQUAL_DOUBLE(-1.0, cos(-M_PI));
-}
-
-TEST(test_cos, cos_100_pi)
-{
-    TEST_ASSERT_EQUAL_DOUBLE(1.0, cos(100 * M_PI));
-}
-
 TEST_GROUP_RUNNER(test_cos_known_values_one_cycle) 
 {
     RUN_TEST_CASE(test_cos, cos_0);
@@ -141,11 +125,40 @@ TEST_GROUP_RUNNER(test_cos_known_values_one_cycle)
     RUN_TEST_CASE(test_cos, cos_2_pi);
 }
 
+
+
+TEST(test_cos, cos_NaN)
+{
+    TEST_ASSERT_EQUAL_DOUBLE(NAN, cos(sqrt(-1.0)));
+}
+
+TEST(test_cos, cos_minus_pi)
+{
+    TEST_ASSERT_EQUAL_DOUBLE(-1.0, cos(-M_PI));
+}
+
+TEST(test_cos, cos_100_pi)
+{
+    TEST_ASSERT_EQUAL_DOUBLE(1.0, cos(100 * M_PI));
+}
+
 TEST_GROUP_RUNNER(test_cos_special_cases) 
 {
     RUN_TEST_CASE(test_cos, cos_minus_pi);
     RUN_TEST_CASE(test_cos, cos_100_pi);
     RUN_TEST_CASE(test_cos, cos_NaN);
+}
+
+
+TEST(test_cos, all_within_range)
+{
+    double i = 0.0;
+    double max = 2 * M_PI;
+    while(i < max)
+    {
+        TEST_ASSERT_DOUBLE_WITHIN(1.0, 0.01, cos(i));
+        i += 0.05;
+    }
 }
 
 void runner(void)
